@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "19903680625",
+    "firebase_url": "https://ceasepandemic.firebaseio.com",
+    "project_id": "ceasepandemic",
+    "storage_bucket": "ceasepandemic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19903680625:android:df47414caabccae878cbd0",
+        "android_client_info": {
+          "package_name": "com.example.ceasepandemic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "19903680625-lmeodu28d5gahiie4qj73sdketaivd8q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ceasepandemic",
+            "certificate_hash": "087ee31fcf21c4b04ef65162e8033cf447b15f13"
+          }
+        },
+        {
+          "client_id": "19903680625-d6iqk99embjgm09ike94kei942oeh27p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf6QYxIOExCCuDi7aNGd6_ewA9oK4GJ6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "19903680625-d6iqk99embjgm09ike94kei942oeh27p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
