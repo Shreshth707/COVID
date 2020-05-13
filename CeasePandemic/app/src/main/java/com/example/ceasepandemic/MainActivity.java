@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 mSend.setText("Verify Code");
                 // make the code visible
                 mCode.setCursorVisible(true);
+
             }
         };
 
