@@ -27,15 +27,20 @@ public class StartActivity extends AppCompatActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (user!=null){
-                    Toast.makeText(getApplicationContext(), "Welcome Back", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                    finish();
-                }else {
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartActivity.this ,mlogo,"logo_transition");
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class),options.toBundle());
-                    finish();
-                }
+                mlogo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (user!=null){
+                            Toast.makeText(getApplicationContext(), "Welcome Back", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                            finish();
+                        }else {
+                            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartActivity.this ,mlogo,"logo_transition");
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class),options.toBundle());
+                            finish();
+                        }
+                    }
+                });
 
             }
         },1000);

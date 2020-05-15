@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SettingsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:background="@drawable/covid_logo"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/phonenumber"
+            android:layout_width="280dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="20dp"
+            android:hint="name"/>
+
+        <TextView
+            android:id="@+id/code"
+            android:layout_width="280dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="10dp"
+            android:hint="phoneno"/>
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="10dp"
+            android:hint="status"/>
+
+        <Button
+            android:id="@+id/update_info"
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Update Info" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Stop Sharing Location" />
+
+    </LinearLayout>
+
+</FrameLayout>

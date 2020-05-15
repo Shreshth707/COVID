@@ -2,54 +2,31 @@ package com.example.ceasepandemic;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import android.Manifest;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.firebase.geofire.GeoFire;
-import com.firebase.geofire.GeoLocation;
-import com.firebase.geofire.GeoQuery;
-import com.firebase.geofire.GeoQueryEventListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.ceasepandemic.fragments.HomeFragment;
+import com.example.ceasepandemic.fragments.SettingsFragment;
+import com.example.ceasepandemic.fragments.WorldFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.EventListener;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
 public class HomeActivity extends AppCompatActivity  {
 
     private Button mStart,mStop;
     private TextView mTextView;
-    private BroadcastReceiver broadcastReceiver;
-    private DatabaseReference userDb = FirebaseDatabase.getInstance().getReference().child("user");
-    private  UserObject currUser;
-    private ArrayList<UserObject> contactList = new ArrayList<>();
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +40,7 @@ public class HomeActivity extends AppCompatActivity  {
         mStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent service = new Intent (getApplicationContext(),GPS_SERVICE.class);
+                Intent service = new Intent (getApplicationContext(), GPS_SERVICE.class);
                 startService(service);
             }
         });
@@ -75,11 +52,34 @@ public class HomeActivity extends AppCompatActivity  {
             }
         });
         callPermissions();
+
+        bottomNavigationView = findViewById(R.id.bottomNav);
+
+        if (savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,new HomeFragment()).commit();
+        }
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment fragment = null;
+                switch(menuItem.getItemId()){
+                    case R.id.news:
+                        fragment = new HomeFragment();
+                        break;
+                    case R.id.world:
+                        fragment = new WorldFragment();
+                        break;
+                    case R.id.settings:
+                        fragment = new SettingsFragment();
+                        break;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,fragment).commit();
+                return false;
+            }
+        });
+
     }
-
-
-
-
 
     public void callPermissions(){
         String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION};
