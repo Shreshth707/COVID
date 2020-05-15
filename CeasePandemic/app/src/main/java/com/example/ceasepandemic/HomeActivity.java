@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity  {
 
-    private Button mStart,mStop;
     private TextView mTextView;
     private BottomNavigationView bottomNavigationView;
 
@@ -33,28 +32,11 @@ public class HomeActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        mStart = findViewById(R.id.start);
-        mStop = findViewById(R.id.stop);
-        mTextView = findViewById(R.id.textView);
-
-        mStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent service = new Intent (getApplicationContext(), GPS_SERVICE.class);
-                startService(service);
-            }
-        });
-        mStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent service = new Intent (getApplicationContext(),GPS_SERVICE.class);
-                stopService(service);
-            }
-        });
         callPermissions();
 
         bottomNavigationView = findViewById(R.id.bottomNav);
 
+        bottomNavigationView.setSelectedItemId(R.id.news);
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,new HomeFragment()).commit();
         }
@@ -94,7 +76,6 @@ public class HomeActivity extends AppCompatActivity  {
                 // do your task.
                 //requestLocationUpdates();
                 callLocationService();
-                mTextView.setText("Service Started");
             }
 
             @Override

@@ -3,55 +3,158 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.SettingsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical"
-        android:layout_marginTop="50dp">
+   <ScrollView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:background="@drawable/covid_logo"
-            android:layout_gravity="center"/>
+           <TextView
+               android:id="@+id/settings_layout"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="10dp"
+               android:layout_marginTop="40dp"
+               android:text="Settings"
+               android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+               android:textColor="#FFFFFF"
+               android:textSize="50dp" />
 
-        <TextView
-            android:id="@+id/phonenumber"
-            android:layout_width="280dp"
-            android:layout_height="62dp"
-            android:layout_marginTop="20dp"
-            android:hint="name"/>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_below="@+id/settings_layout"
+               android:gravity="center_horizontal"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+               android:layout_marginTop="20dp">
 
-        <TextView
-            android:id="@+id/code"
-            android:layout_width="280dp"
-            android:layout_height="62dp"
-            android:layout_marginTop="10dp"
-            android:hint="phoneno"/>
-        <TextView
-            android:layout_width="280dp"
-            android:layout_height="62dp"
-            android:layout_marginTop="10dp"
-            android:hint="status"/>
+               <de.hdodenhof.circleimageview.CircleImageView
+                   android:layout_width="170dp"
+                   android:layout_height="170dp"
+                   android:background="@drawable/covid_logo"
+                   android:layout_gravity="center"/>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="30dp"
+                   android:id="@+id/update_info">
 
-        <Button
-            android:id="@+id/update_info"
-            android:layout_width="wrap_content"
-            android:layout_height="62dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="Update Info" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="62dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="Stop Sharing Location" />
+                   <LinearLayout
+                       android:layout_width="0dp"
+                       android:layout_weight=".9"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical">
 
-    </LinearLayout>
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Personal Info"
+                           android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                           android:textSize="30dp" />
+                       <TextView
+                           android:layout_marginTop="10dp"
+                           android:id="@+id/Name"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:textSize="20dp"
+                           android:hint="Name"
+                           android:textColor="#FFFFFF"/>
+
+                       <TextView
+                           android:id="@+id/phone_no"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="10dp"
+                           android:textSize="20dp"
+                           android:hint="Phone_No"
+                           android:textColor="#FFFFFF"/>
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="10dp"
+                           android:textSize="20dp"
+                           android:hint="Status"
+                           android:textColor="#FFFFFF"/>
+                   </LinearLayout>
+                   <ImageView
+                       android:layout_width="0dp"
+                       android:layout_height="match_parent"
+                       android:layout_weight=".1"
+                       android:layout_gravity="center_vertical"
+                       android:src="@drawable/ic_navigate_next_black_24dp"/>
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="30dp">
+
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight=".8"
+                       android:text="How It Works"
+                       android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                       android:textSize="30dp" />
+                   <ImageView
+                       android:layout_width="0dp"
+                       android:layout_height="match_parent"
+                       android:layout_weight=".1"
+                       android:src="@drawable/ic_navigate_next_black_24dp"/>
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="30dp">
+
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight=".8"
+                       android:text="Location"
+                       android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                       android:textSize="30dp" />
+                   <androidx.appcompat.widget.SwitchCompat
+                       android:id="@+id/location_switch"
+                       android:layout_width="0dp"
+                       android:layout_weight=".2"
+                       android:layout_height="match_parent"
+                       android:layout_marginRight="10dp"
+                       android:thumb="@drawable/sw_thumb"
+                       app:track="@drawable/sw_track"/>
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@+id/group_3"
+                   android:gravity="center_horizontal"
+                   android:layout_marginTop="70dp"
+                   android:orientation="vertical">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Developed by" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="SHRESHTH"
+                       android:textSize="20dp"
+                       android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+               </LinearLayout>
+
+           </LinearLayout>
+
+       </RelativeLayout>
+   </ScrollView>
+
 
 </FrameLayout>

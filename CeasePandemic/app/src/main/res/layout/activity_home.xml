@@ -6,36 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
     android:orientation="vertical">
-   <LinearLayout
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       android:id="@+id/layout1">
-
-       <Button
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Start Service"
-           android:id="@+id/start"/>
-       <Button
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Stop Service"
-           android:id="@+id/stop"/>
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:hint="Longitude"
-           android:id="@+id/textView"/>
-   </LinearLayout>
 
     <FrameLayout
         android:id="@+id/flFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNav"
-        android:layout_below="@+id/layout1" />
-
+        android:scrollbars="vertical"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
