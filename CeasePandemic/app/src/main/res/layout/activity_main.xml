@@ -12,7 +12,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="170dp"
                     android:layout_height="170dp"
@@ -20,19 +19,46 @@
                     android:background="@drawable/covid_logo"
                     android:transitionName="logo_transition"/>
 
-                <EditText
-                    android:id="@+id/phonenumber"
-                    android:layout_width="280dp"
-                    android:layout_height="62dp"
-                    android:layout_marginTop="20dp"
-                    android:hint="Phone Number" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <EditText
-                    android:id="@+id/code"
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".2"
+                            android:text="+91"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:paddingTop="10dp" />
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:hint="Enter Phone Number"
+                            android:textSize="20dp"
+                            android:maxLength="10"
+                            android:id="@+id/phonenumber"/>
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="280dp"
-                    android:layout_height="62dp"
-                    android:layout_marginTop="10dp"
-                    android:hint="Verification Code" />
+                    android:layout_height="match_parent">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                                android:layout_weight=".2"/>
+                        <EditText
+                            android:id="@+id/code"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:textSize="20dp"
+                            android:hint="Verification Code" />
+                </LinearLayout>
+
 
                 <Button
                     android:id="@+id/send"
